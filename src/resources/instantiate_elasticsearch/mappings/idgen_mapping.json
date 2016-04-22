@@ -1,0 +1,15 @@
+{
+	"mappings": 
+	{
+		"id": 
+		{
+			"properties": 
+			{
+				"generatedId": 
+				{
+					"type": "long"
+				}
+			}
+		}
+	}
+}

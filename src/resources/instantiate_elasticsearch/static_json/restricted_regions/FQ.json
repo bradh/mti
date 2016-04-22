@@ -1,0 +1,17 @@
+{
+  "name": "FQ",
+  "comment": "FQ",
+  "createdBy": "MTI-SYSTEM",
+  "startTime": "1800-01-01T00:00:00.000",
+  "stopTime": "2400-01-01T00:00:00.000",
+  "boundingArea": {"type":"Polygon","coordinates":[[[-176.59870147707,0.40374755859455],[-176.29932403566,0.40374755859455],[-176.29932403566,0],[-176.59870147707,0],[-176.59870147707,0.40374755859455]]]},
+  "limdis": {
+    "domestic": "true",
+    "northcom": "false",
+    "southcom": "false",
+    "eucom": "false",
+    "africom": "false",
+    "centcom": "false",
+    "pacom": "false"
+  }
+}

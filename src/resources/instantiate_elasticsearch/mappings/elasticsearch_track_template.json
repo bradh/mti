@@ -1,0 +1,369 @@
+{
+    "template" : "track_y*",
+    "settings" : {
+        "number_of_shards" : 5,
+        "number_of_replicas" : 1
+    },
+    "mappings" : {
+        "track_set": {
+            "properties": {
+				"uuid": {"type": "string", "index": "not_analyzed"},
+				"coverage": {
+                    "type": "geo_shape",
+                    "tree": "quadtree",
+                    "precision": "1m"
+                },
+				"startTime": {
+                    "type":  "date", "format": "date_hour_minute_second_millis"
+                },
+                "stopTime": {
+                    "type":  "date", "format": "date_hour_minute_second_millis"
+                },
+				"security": {
+                    "type": "nested",
+                    "properties": {
+					    "classification" : {"type": "string", "index": "no"},
+					    "policyName" : {"type": "string", "index": "no"},
+					    "controlSystem" : {"type": "string", "index": "no"},
+					    "dissemination" : {"type": "string", "index": "no"},
+					    "releasability" : {"type": "string", "index": "no"}
+					}
+                },
+                "sensorName": {"type": "string", "index": "no"},
+				"sensorID": {
+                    "type": "nested",
+                    "properties": {
+					    "stationId" : {"type": "string", "index": "no"},
+					    "nationality" : {"type": "string", "index": "no"}
+					}
+                },
+                "trackCount": {"type": "integer"},
+                "algorithm": {"type": "string", "index": "no"},
+                "source": {"type": "string", "index": "no"},
+                "sourceType": {"type": "string", "index": "no"},
+              	"creationTime": {
+                    "type":  "date", "format": "date_hour_minute_second_millis", "index": "no"
+                },
+                "userId": {"type": "string", "index": "no"},
+                "comment": {"type": "string", "index": "no"}
+            }
+        },
+        "track": {
+            "properties": {
+				"uuid": {"type": "string", "index": "not_analyzed"},
+				"trackSetUuid": {"type": "string", "index": "not_analyzed"},
+				"trackNumber": {"type": "string", "index": "no"},
+				"status": {"type": "string", "index": "no"},
+				"security": {
+                    "type": "nested",
+                    "properties": {
+					    "classification" : {"type": "string", "index": "no"},
+					    "policyName" : {"type": "string", "index": "no"},
+					    "controlSystem" : {"type": "string", "index": "no"},
+					    "dissemination" : {"type": "string", "index": "no"},
+					    "releasability" : {"type": "string", "index": "no"}
+					}
+                },
+                "path": {
+                    "type": "geo_shape",
+                    "tree": "quadtree",
+                    "precision": "1m"
+                },
+                "sanitizedPath": {
+                    "type": "geo_shape",
+                    "tree": "quadtree",
+                    "precision": "1m"
+                },
+                "startTime": {"type": "date", "format":  "date_hour_minute_second_millis"},
+                "stopTime": {"type":  "date", "format": "date_hour_minute_second_millis"},
+				"sanitizedPointCount": {"type": "integer"},
+				"pointCount": {"type": "integer"},
+				"maxSpeed": {"type": "double"},
+				"averageSpeed": {"type": "double"},
+				"distance": {"type": "double"},
+				"comment": {"type": "string", "index": "no"},
+                "limdis": {
+                	"type" : "nested",
+                	"properties": {
+                        "domestic" : {"type": "boolean", "index":   "not_analyzed"},
+                		"northcom" : {"type": "boolean", "index":   "not_analyzed"},
+                		"southcom" : {"type": "boolean", "index":   "not_analyzed"},
+                		"eucom" : {"type": "boolean", "index":   "not_analyzed"},
+                		"africom" : {"type": "boolean", "index":   "not_analyzed"},
+                		"centcom" : {"type": "boolean", "index":   "not_analyzed"},
+                		"pacom" : {"type": "boolean", "index":   "not_analyzed"}
+                	}
+                }
+				
+            }
+        },
+        "track_point": {
+            "properties": {
+				"uuid": {"type": "string", "index": "not_analyzed"},
+				"trackUuid": {"type": "string", "index": "not_analyzed"},
+				"security": {
+                    "type": "nested",
+                    "properties": {
+					    "classification" : {"type": "string", "index": "no"},
+					    "policyName" : {"type": "string", "index": "no"},
+					    "controlSystem" : {"type": "string", "index": "no"},
+					    "dissemination" : {"type": "string", "index": "no"},
+					    "releasability" : {"type": "string", "index": "no"}
+					}
+                },
+                "time": {"type": "date", "format": "date_hour_minute_second_millis"}, 
+				"comment": {"type": "string", "index": "no"},
+                "location": {
+                    "type": "geo_shape",
+                    "tree": "quadtree",
+                    "precision": "1m"
+                },  
+ 				"speed": {"type": "double", "index": "no"},
+				"course": {"type": "double", "index": "no"},
+				"type": {"type": "string", "index": "no"},
+				"source": {"type": "string", "index": "no"},
+				"detail": {
+                    "type": "nested",
+                    "properties": {
+					    "position" : {
+						    "type": "nested",
+							"properties": {
+                                "origin": {
+                                    "type": "geo_shape",
+                                    "tree": "quadtree",
+                                    "precision": "1m",
+									"index": "no"
+                                },
+                                "rotation": {
+								    "type": "nested",
+									"properties": {
+									    "x": {"type": "double", "index": "no"},
+									    "y": {"type": "double", "index": "no"},
+									    "z": {"type": "double", "index": "no"}
+									}
+                                },
+                                "position": {
+								    "type": "nested",
+									"properties": {
+									    "x": {"type": "double", "index": "no"},
+									    "y": {"type": "double", "index": "no"},
+									    "z": {"type": "double", "index": "no"}
+									}
+                                }
+							}
+						},
+					    "velocity" : {
+						    "type": "nested",
+							"properties": {
+							    "x": {"type": "double", "index": "no"},
+							    "y": {"type": "double", "index": "no"},
+							    "z": {"type": "double", "index": "no"}
+							}
+						},
+					    "acceleration" : {
+						    "type": "nested",
+							"properties": {
+							    "x": {"type": "double", "index": "no"},
+							    "y": {"type": "double", "index": "no"},
+							    "z": {"type": "double", "index": "no"}
+							}
+						},
+					    "covariance": {
+                    	    "type": "nested",
+                    	    "properties": {
+					    	    "posxposx" : {"type": "double", "index": "no"},
+					    	    "posyposy" : {"type": "double", "index": "no"},
+					    	    "poszposz" : {"type": "double", "index": "no"},
+					    	    "posxposy" : {"type": "double", "index": "no"},
+					    	    "posxposz" : {"type": "double", "index": "no"},
+					    	    "posyposz" : {"type": "double", "index": "no"},
+					    	    "velxvelx" : {"type": "double", "index": "no"},
+					    	    "velyvely" : {"type": "double", "index": "no"},
+					    	    "velzvelz" : {"type": "double", "index": "no"},
+					    	    "posxvelx" : {"type": "double", "index": "no"},
+					    	    "posxvely" : {"type": "double", "index": "no"},
+					    	    "posxvelz" : {"type": "double", "index": "no"},
+					    	    "posyvelx" : {"type": "double", "index": "no"},
+					    	    "posyvely" : {"type": "double", "index": "no"},
+					    	    "posyvelz" : {"type": "double", "index": "no"},
+					    	    "poszvelx" : {"type": "double", "index": "no"},
+					    	    "poszvely" : {"type": "double", "index": "no"},
+					    	    "poszvelz" : {"type": "double", "index": "no"},
+					    	    "velxvely" : {"type": "double", "index": "no"},
+					    	    "velxvelz" : {"type": "double", "index": "no"},
+					    	    "velyvelz" : {"type": "double", "index": "no"}
+						    }
+                	    }
+					}
+                },
+                "limdis": {
+                	"type" : "nested",
+                	"properties": {
+                        "domestic" : {"type": "boolean", "index":   "not_analyzed"},
+                		"northcom" : {"type": "boolean", "index":   "not_analyzed"},
+                		"southcom" : {"type": "boolean", "index":   "not_analyzed"},
+                		"eucom" : {"type": "boolean", "index":   "not_analyzed"},
+                		"africom" : {"type": "boolean", "index":   "not_analyzed"},
+                		"centcom" : {"type": "boolean", "index":   "not_analyzed"},
+                		"pacom" : {"type": "boolean", "index":   "not_analyzed"}
+                	}
+                }                
+            }
+        },
+        "track_motion_imagery": {
+            "properties": {
+				"uuid": {"type": "string", "index": "not_analyzed"},
+				"trackUuid": {"type": "string", "index": "not_analyzed"},
+				"security": {
+                    "type": "nested",
+                    "properties": {
+					    "classification" : {"type": "string", "index": "no"},
+					    "policyName" : {"type": "string", "index": "no"},
+					    "controlSystem" : {"type": "string", "index": "no"},
+					    "dissemination" : {"type": "string", "index": "no"},
+					    "releasability" : {"type": "string", "index": "no"}
+					}
+                },
+                "time": {"type": "date", "format": "date_hour_minute_second_millis"}, 
+				"comment": {"type": "string", "index": "no"},
+				"band": {"type": "string", "index": "no"},
+				"imageRef": {"type": "string", "index": "no"},
+				"imageChip": {"type": "string", "index": "no"}
+			}
+        },
+        "track_identity": {
+            "properties": {
+				"uuid": {"type": "string", "index": "not_analyzed"},
+				"trackUuid": {"type": "string", "index": "not_analyzed"},
+				"security": {
+                    "type": "nested",
+                    "properties": {
+					    "classification" : {"type": "string", "index": "no"},
+					    "policyName" : {"type": "string", "index": "no"},
+					    "controlSystem" : {"type": "string", "index": "no"},
+					    "dissemination" : {"type": "string", "index": "no"},
+					    "releasability" : {"type": "string", "index": "no"}
+					}
+                },
+                "time": {"type": "date", "format": "date_hour_minute_second_millis"}, 
+				"comment": {"type": "string", "index": "no"},
+				"identity": {"type": "string", "index": "no"},
+				"amplification": {"type": "string", "index": "no"},
+				"source": {"type": "string", "index": "no"},
+				"credibility": {
+                    "type": "nested",
+                    "properties": {
+					    "value" : {"type": "integer", "index": "no"},
+					    "sourceReliability" : {"type": "integer", "index": "no"}
+					}
+                },
+				"iff": {"type": "string", "index": "no"},
+				"unitName": {"type": "string", "index": "no"},
+				"unitSymbol": {"type": "string", "index": "no"}
+			}
+        },
+        "track_classification": {
+            "properties": {
+				"uuid": {"type": "string", "index": "not_analyzed"},
+				"trackUuid": {"type": "string", "index": "not_analyzed"},
+				"security": {
+                    "type": "nested",
+                    "properties": {
+					    "classification" : {"type": "string", "index": "no"},
+					    "policyName" : {"type": "string", "index": "no"},
+					    "controlSystem" : {"type": "string", "index": "no"},
+					    "dissemination" : {"type": "string", "index": "no"},
+					    "releasability" : {"type": "string", "index": "no"}
+					}
+                },
+                "time": {"type": "date", "format": "date_hour_minute_second_millis"}, 
+				"comment": {"type": "string", "index": "no"},
+				"classification": {"type": "string", "index": "not_analyzed"},
+				"source": {"type": "string", "index": "no"},
+				"credibility": {
+                    "type": "nested",
+                    "properties": {
+					    "value" : {"type": "integer", "index": "no"},
+					    "sourceReliability" : {"type": "integer", "index": "no"}
+					}
+                },
+				"objectCount": {"type": "integer", "index": "no"}
+			}
+        },
+        "track_management": {
+            "properties": {
+				"uuid": {"type": "string", "index": "not_analyzed"},
+				"trackUuid": {"type": "string", "index": "not_analyzed"},
+				"security": {
+                    "type": "nested",
+                    "properties": {
+					    "classification" : {"type": "string", "index": "no"},
+					    "policyName" : {"type": "string", "index": "no"},
+					    "controlSystem" : {"type": "string", "index": "no"},
+					    "dissemination" : {"type": "string", "index": "no"},
+					    "releasability" : {"type": "string", "index": "no"}
+					}
+                },
+                "time": {"type": "date", "format": "date_hour_minute_second_millis"}, 
+				"comment": {"type": "string", "index": "no"},
+                "productionArea": {
+                    "type": "geo_shape",
+                    "tree": "quadtree",
+                    "precision": "1m",
+					"index": "no"
+                },
+				"source": {"type": "string", "index": "no"},
+				"environment": {"type": "string", "index": "no"},
+				"quality": {"type": "integer", "index": "no"},
+				"trackerId": {
+                    "type": "nested",
+                    "properties": {
+					    "stationId" : {"type": "string", "index": "no"},
+					    "nationality" : {"type": "string", "index": "no"}
+					}
+				},
+				"trackerType": {"type": "string", "index": "no"},
+				"alertIndicator": {"type": "boolean", "index": "no"}
+			}
+        },
+        "track_esm": {
+            "properties": {
+				"uuid": {"type": "string", "index": "not_analyzed"},
+				"trackUuid": {"type": "string", "index": "not_analyzed"},
+				"security": {
+                    "type": "nested",
+                    "properties": {
+					    "classification" : {"type": "string", "index": "no"},
+					    "policyName" : {"type": "string", "index": "no"},
+					    "controlSystem" : {"type": "string", "index": "no"},
+					    "dissemination" : {"type": "string", "index": "no"},
+					    "releasability" : {"type": "string", "index": "no"}
+					}
+                },
+                "time": {"type": "date", "format": "date_hour_minute_second_millis"}, 
+				"comment": {"type": "string", "index": "no"},
+				"agility": {"type": "boolean", "index": "no"},
+				"spectrum": {
+                    "type": "nested",
+                    "properties": {
+					    "unit" : {"type": "string", "index": "no"},
+					    "frequency" : {"type": "double", "index": "no"},
+					    "bandwidth" : {"type": "double", "index": "no"}
+					}
+				},
+				"staggered": {"type": "boolean", "index": "no"},
+				"pulseRepFreq": {
+                    "type": "nested",
+                    "properties": {
+					    "unit" : {"type": "string", "index": "no"},
+					    "frequency" : {"type": "double", "index": "no"},
+					    "bandwidth" : {"type": "double", "index": "no"}
+					}
+				},
+				"modulation": {"type": "string", "index": "no"},
+				"pulseWidth": {"type": "double", "index": "no"},
+				"power": {"type": "double", "index": "no"}
+			}
+        }
+	}
+}

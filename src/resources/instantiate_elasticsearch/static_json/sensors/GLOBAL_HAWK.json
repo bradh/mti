@@ -1,0 +1,7 @@
+{
+  "name": "GLOBAL_HAWK",
+  "description": "Long Endurance UAV",
+  "platformIds": [
+    "GHAWK1"
+  ]
+}

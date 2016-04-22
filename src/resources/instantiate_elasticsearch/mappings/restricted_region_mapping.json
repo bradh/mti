@@ -1,0 +1,63 @@
+{
+  "mappings": {
+    "restricted_region": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "comment": {
+          "type": "string"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "startTime": {
+          "type": "date",
+          "format": "date_hour_minute_second_millis"
+        },
+        "stopTime": {
+          "type": "date",
+          "format": "date_hour_minute_second_millis"
+        },
+        "boundingArea": {
+          "type": "geo_shape",
+          "tree": "quadtree",
+          "precision": "1m"
+        },
+        "limdis": {
+          "type": "nested",
+          "properties": {
+            "domestic": {
+              "type": "boolean",
+              "index": "not_analyzed"
+            },
+            "northcom": {
+              "type": "boolean",
+              "index": "not_analyzed"
+            },
+            "southcom": {
+              "type": "boolean",
+              "index": "not_analyzed"
+            },
+            "eucom": {
+              "type": "boolean",
+              "index": "not_analyzed"
+            },
+            "africom": {
+              "type": "boolean",
+              "index": "not_analyzed"
+            },
+            "centcom": {
+              "type": "boolean",
+              "index": "not_analyzed"
+            },
+            "pacom": {
+              "type": "boolean",
+              "index": "not_analyzed"
+            }
+          }
+        }
+      }
+    }
+  }
+}

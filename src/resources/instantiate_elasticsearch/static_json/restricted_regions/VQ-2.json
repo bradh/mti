@@ -1,0 +1,17 @@
+{
+  "name": "VQ-2",
+  "comment": "VQ-2",
+  "createdBy": "MTI-SYSTEM",
+  "startTime": "1800-01-01T00:00:00.000",
+  "stopTime": "2400-01-01T00:00:00.000",
+  "boundingArea": {"type":"Polygon","coordinates":[[[-64.9003601074229,17.800598144534],[-64.3002319335943,17.800598144534],[-64.3002319335943,17.598724365237],[-64.9003601074229,17.598724365237],[-64.9003601074229,17.800598144534]]]},
+  "limdis": {
+    "domestic": "true",
+    "northcom": "false",
+    "southcom": "false",
+    "eucom": "false",
+    "africom": "false",
+    "centcom": "false",
+    "pacom": "false"
+  }
+}

@@ -1,0 +1,16 @@
+<assembly>
+	<id>instantiate_elasticsearch</id>
+	<formats>
+		<format>tar.gz</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<fileSets>
+		<fileSet>
+			<directory>src/resources/instantiate_elasticsearch</directory>
+			<outputDirectory>instantiate_elasticsearch</outputDirectory>
+			<lineEnding>unix</lineEnding>
+			<fileMode>0777</fileMode>
+            <directoryMode>0777</directoryMode>
+		</fileSet>
+	</fileSets>
+</assembly>

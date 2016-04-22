@@ -1,0 +1,19 @@
+{
+  "name": "BQ",
+  "comment": "BQ",
+  "createdBy": "MTI-SYSTEM",
+  "startTime": "1800-01-01T00:00:00.000",
+  "stopTime": "2400-01-01T00:00:00.000",
+  "boundingArea": 
+	{"type":"Polygon","coordinates":[[[-75.400543212892,18.599853515625],[-74.800415039064,18.599853515625],[-74.800415039064,18.200225830078],[-75.400543212892,18.200225830078],[-75.400543212892,18.599853515625]]]}
+  ,
+  "limdis": {
+    "domestic": "true",
+    "northcom": "false",
+    "southcom": "false",
+    "eucom": "false",
+    "africom": "false",
+    "centcom": "false",
+    "pacom": "false"
+  }
+}

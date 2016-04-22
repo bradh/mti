@@ -1,0 +1,22 @@
+{
+  "mappings": {
+    "partition": {
+      "properties": {
+        "indexName": {
+          "type": "string"
+        },
+        "startTime": {
+          "type": "date",
+          "format": "date_hour_minute_second_millis"
+        },
+        "stopTime": {
+          "type": "date",
+          "format": "date_hour_minute_second_millis"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

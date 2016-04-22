@@ -1,0 +1,19 @@
+{
+  "name": "JQ",
+  "comment": "JQ",
+  "createdBy": "MTI-SYSTEM",
+  "startTime": "1800-01-01T00:00:00.000",
+  "stopTime": "2400-01-01T00:00:00.000",
+  "boundingArea": 
+	{"type":"Polygon","coordinates":[[[-169.602470398,16.799468994142],[-169.29759979253,16.799468994142],[-169.29759979253,16.59896850586],[-169.602470398,16.59896850586],[-169.602470398,16.799468994142]]]}
+  ,
+  "limdis": {
+    "domestic": "true",
+    "northcom": "false",
+    "southcom": "false",
+    "eucom": "false",
+    "africom": "false",
+    "centcom": "false",
+    "pacom": "false"
+  }
+}

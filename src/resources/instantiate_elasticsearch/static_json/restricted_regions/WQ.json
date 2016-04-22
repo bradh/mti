@@ -1,0 +1,17 @@
+{
+  "name": "WQ",
+  "comment": "WQ",
+  "createdBy": "MTI-SYSTEM",
+  "startTime": "1800-01-01T00:00:00.000",
+  "stopTime": "2400-01-01T00:00:00.000",
+  "boundingArea": {"type":"Polygon","coordinates":[[[166.49951934811,19.400482177733],[166.79889678951,19.400482177733],[166.79889678951,19.201354980467],[166.49951934811,19.201354980467],[166.49951934811,19.400482177733]]]},
+  "limdis": {
+    "domestic": "true",
+    "northcom": "false",
+    "southcom": "false",
+    "eucom": "false",
+    "africom": "false",
+    "centcom": "false",
+    "pacom": "false"
+  }
+}

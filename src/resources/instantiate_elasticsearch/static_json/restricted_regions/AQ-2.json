@@ -1,0 +1,19 @@
+{
+  "name": "AQ-2",
+  "comment": "AQ-2",
+  "createdBy": "MTI-SYSTEM",
+  "startTime": "1800-01-01T00:00:00.000",
+  "stopTime": "2400-01-01T00:00:00.000",
+  "boundingArea": 
+	{"type":"Polygon","coordinates": [[[-171.20029449468,-10.998687744141],[-170.89954376226,-10.998687744141],[-170.89954376226,-11.199188232423],[-171.20029449468,-11.199188232423],[-171.20029449468,-10.998687744141]]]}
+  ,
+  "limdis": {
+    "domestic": "true",
+    "northcom": "false",
+    "southcom": "false",
+    "eucom": "false",
+    "africom": "false",
+    "centcom": "false",
+    "pacom": "false"
+  }
+}

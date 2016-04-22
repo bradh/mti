@@ -1,0 +1,335 @@
+{
+    "template" : "gmti_y*",
+    "settings" : {
+        "number_of_shards" : 5,
+        "number_of_replicas" : 1
+    },
+    "mappings" : {
+        "gmti_mission": {
+            "properties": {
+				"packetHeaderNumber": {
+                    "type": "long",
+                    "index": "no"
+                },
+                "packetSegmentNumber": {
+                    "type": "long",
+                    "index": "no"
+                },
+                "missionUID": {
+                    "type": "long",
+                    "index": "not_analyzed"
+                },
+				"boundingArea": {
+                    "type": "geo_shape",
+                    "tree": "quadtree",
+                    "precision": "1m"
+                },
+				"startTime": {
+                    "type":  "date", "format": "date_hour_minute_second_millis"
+                },
+                "stopTime": {
+                    "type":  "date", "format": "date_hour_minute_second_millis"
+                },
+                "isBronze": {
+                    "type":  "boolean", "index": "not_analyzed"
+                },
+              	"startTimeOrig": {
+                    "type":  "date", "format": "date_hour_minute_second_millis", "index": "no"
+                },
+                "stopTimeOrig": {
+                    "type":  "date", "format": "date_hour_minute_second_millis", "index": "no"
+                },
+				"missionState": {
+                    "type": "object",
+                    "properties": {
+                        "name" : {"type": "string", "index":   "not_analyzed"},
+                        "enum" : {"type": "integer"}
+                    }
+                },
+				"platformType": {
+                    "type": "object",
+                    "properties": {
+                        "name" : {"type": "string", "index": "no"},
+                        "enum" : {"type": "integer", "index": "no"}
+                    }
+                },
+				"classification": {
+                    "type": "object",
+                    "properties": {
+                        "name" : {"type": "string", "index": "no"},
+                        "enum" : {"type": "integer", "index": "no"}
+                    }
+                },
+				"exerciseIndicator": {
+                    "type": "object",
+                    "properties": {
+                        "name" : {"type": "string", "index": "no"},
+                        "enum" : {"type": "integer", "index": "no"}
+                    }
+                },
+				"created": {
+                    "type":  "date", "format": "date_hour_minute_second_millis", "index": "no"
+                },
+				"stanagMissionId": {
+                    "type": "long",
+                    "index": "not_analyzed"
+                },
+				"fileSize": {
+                    "type": "long",
+                    "index": "no"
+                },
+				"numberOfDots": {
+                    "type": "long",
+                    "index": "no"
+                },
+				"numberOfDotsSanitized": {
+                    "type": "long",
+                    "index": "no"
+                },
+				"codeword": {
+                    "type": "integer",
+                    "index": "no"
+                },
+				"dotMask": {
+                    "type": "integer",
+                    "index": "not_analyzed"
+                },
+				"coincidentMask": {
+                    "type": "integer",
+                    "index": "not_analyzed"
+                },
+				"platformId": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "missionId": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "nationality": {
+                    "type": "string",
+                    "index": "no"
+                },
+                "freeText": {
+                    "type": "string",
+                    "index": "no"
+                },
+                "flightPlan": {
+                    "type": "string", "index": "no"
+                },
+                "missionPlan": {
+                    "type": "string", "index": "no"
+                },
+                "platformConfig": {
+                    "type": "string", "index": "no"
+                },
+                "imageId": {
+                    "type": "string",
+                    "index": "no"
+                },
+                "sic": {
+                    "type": "string",
+                    "index": "no"
+                },
+                "countryCode": {
+                    "type": "string",
+                    "index": "no"
+                },
+                "targetBE": {
+                    "type": "string",
+                    "index": "no"
+                },
+                "targetId": {
+                    "type": "string",
+                    "index": "no"
+                },
+                "filename": {
+                	"type": "string",
+                	"index": "not_analyzed"
+                },
+                "createdBy": {
+                	"type": "string",
+                    "index": "no"
+                },
+                "classificationSystem": {
+                    "type": "string",
+                    "index": "no"
+                },
+                "sanitizedFileName": {
+                    "type": "string", "index": "no"
+                },
+                "limdis": {
+                	"type" : "nested",
+                	"properties": {
+                        "domestic" : {"type": "boolean", "index":   "not_analyzed"},
+                		"northcom" : {"type": "boolean", "index":   "not_analyzed"},
+                		"southcom" : {"type": "boolean", "index":   "not_analyzed"},
+                		"eucom" : {"type": "boolean", "index":   "not_analyzed"},
+                		"africom" : {"type": "boolean", "index":   "not_analyzed"},
+                		"centcom" : {"type": "boolean", "index":   "not_analyzed"},
+                		"pacom" : {"type": "boolean", "index":   "not_analyzed"}
+                	}
+                }
+            }
+        },
+        "gmti_job": {
+            "properties": {
+                "packetHeaderNumber": {"type": "integer", "index":   "no"},
+                "packetSegmentNumber": {"type": "integer", "index":   "no"},
+                "jobDefinitionUID": {"type": "long", "index":   "not_analyzed"},
+                "missionUID": {"type": "long", "index":   "not_analyzed"},
+                "boundingArea": {
+                    "type": "geo_shape",
+                    "tree": "quadtree",
+                    "precision": "1m"
+                },
+                "dwellStartDateTime": {"type": "date", "format":  "date_hour_minute_second_millis"},
+                "dwellStopDateTime": {"type":  "date", "format": "date_hour_minute_second_millis"},
+                "sensorType" : {
+                    "type": "object",
+                    "properties": { 
+                        "name" : {"type": "string", "index": "no"},
+                        "enum" : {"type": "integer", "index": "no"}
+                    }
+                }, 
+                "radarMode" : {
+                    "type": "object",
+                    "properties": { 
+                        "name" : {"type": "string", "index": "no"},
+                        "enum" : {"type": "integer", "index": "no"}
+                    }
+                }, 
+                "elevationModel" : {
+                    "type": "object",
+                    "properties": { 
+                        "name" : {"type": "string", "index": "no"},
+                        "enum" : {"type": "integer", "index": "no"}
+                    }
+                },                    
+                "geoidModel" : {
+                    "type": "object",
+                    "properties": { 
+                        "name" : {"type": "string", "index": "no"},
+                        "enum" : {"type": "integer", "index": "no"}
+                    }
+                }, 
+                "jobId": {"type": "long", "index": "not_analyzed"},  
+                "sensorModel": {"type": "string", "index": "no"},    
+                "priority": {"type": "integer", "index":   "no"},                         
+                "targetFilterFlag": {"type": "integer", "index":   "no"},    
+                "revisitInterval": {"type": "integer", "index":   "no"},    
+                "sensorPosUncertaintyAlongTrack": {"type": "integer", "index":   "no"},    
+                "sensorPosUncertaintyCrossTrack": {"type": "integer", "index":   "no"},    
+                "sensorPosUncertaintyAltitide": {"type": "integer", "index":   "no"},    
+                "sensorPosUncertaintyTrackHeading": {"type": "integer", "index":   "no"},        
+                "sensorPosUncertaintyTrackSpeed": {"type": "integer", "index":   "no"},    
+                "slantRangeStdDev": {"type": "integer", "index":   "no"},      
+                "mdv": {"type": "integer", "index":   "no"},    
+                "detectionProbability": {"type": "integer", "index":   "no"},    
+                "falseAlarmDensity": {"type": "integer", "index":   "no"},
+                "crossRangeStdDev": {"type": "double", "index":   "no"},    
+                "velLosStdDev": {"type": "double", "index":   "no"}                
+            }
+        },
+        "gmti_dwell": {
+            "properties": {
+                "_id" : {"type" : "long","index" : "not_analyzed"},
+                "packetHeaderNumber": {"type": "integer", "index":   "no"},
+                "packetSegmentNumber": {"type": "integer", "index":   "no"},
+                "dwellUID": {"type": "long", "index":   "not_analyzed"},
+                "jobDefinitionUID": {"type": "long", "index":   "not_analyzed"},
+                "missionUID": {"type": "long", "index":   "not_analyzed"},
+                "boundingArea": {
+                    "type": "geo_shape",
+                    "tree": "quadtree",
+                    "precision": "1m"
+                },  
+                "dwell": {
+                    "type": "geo_shape",
+                    "tree": "quadtree",
+                    "precision": "1m", 
+                    "index": "no"
+                },  
+                "sensorLocation": {
+                    "type": "geo_shape",
+                    "tree": "quadtree",
+                    "precision": "1m", 
+                    "index": "no"
+                },
+                "dateTime": {"type": "date", "format": "date_hour_minute_second_millis"}, 
+                "jobId": {"type": "long", "index":   "no"},     
+                "sensorSpeed": {"type": "long", "index":   "no"}, 
+                "dwellIndex": {"type": "integer", "index":   "no"},    
+                "revisitIndex": {"type": "integer", "index":   "no"},    
+                "lastDwellOfRevisit": {"type": "integer", "index":   "no"},    
+                "targetReportCount": {"type": "integer", "index":   "no"},    
+                "sensorAlt": {"type": "integer", "index":   "no"},    
+                "sensorPositionUncertaintyTrack": {"type": "integer", "index":   "no"},    
+                "sensorPositionUncertaintyAlt": {"type": "integer", "index":   "no"},    
+                "sensorPositionUncertaintyCrossTrack": {"type": "integer", "index":   "no"}, 
+                "sensorVerticalVelStdDev    ": {"type": "integer", "index":   "no"},
+                "sensorTrackStdDev": {"type": "integer", "index":   "no"},    
+                "sensorSpeedStdDev": {"type": "integer", "index":   "no"},    
+                "sensorVerticalVel": {"type": "integer", "index":   "no"}, 
+                "minDetectableVel": {"type": "integer", "index":   "no"},    
+                "sensorTrack": {"type": "double", "index":   "no"},        
+                "platformHeading": {"type": "double", "index":   "no"},
+                "platformPitch": {"type": "double", "index":   "no"},    
+                "platformRoll": {"type": "double", "index":   "no"},      
+                "halfExtentAngle": {"type": "double", "index":   "no"},    
+                "halfExtentRange": {"type": "double", "index":   "no"},    
+                "sensorHeading": {"type": "double", "index":   "no"},    
+                "sensorPitch": {"type": "double", "index":   "no"},    
+                "sensorRoll": {"type": "double", "index":   "no"}         
+            }
+        },
+        "gmti_targetReport": {
+            "properties": {
+                "_id" : {"type" : "long","index" : "not_analyzed"},
+                "dotUID" : {"type": "long", "index":   "not_analyzed"},  
+                "dwellUID" : {"type": "long", "index":   "not_analyzed"},       
+                "missionUID" : {"type": "long", "index":   "not_analyzed"}, 
+                "targetLocation": {
+                    "type": "geo_shape",
+                    "tree": "quadtree",
+                    "precision": "1m"
+                }, 
+                "dwellDateTime" : {"type":  "date", "format":  "date_hour_minute_second_millis"}, 
+                "targetClassification" : {
+                    "type": "object",
+                    "properties": { 
+                        "name" : {"type": "string", "index":   "no"},
+                        "enum" : {"type": "integer", "index": "no"}
+                    }
+                },  
+                "truthEntity" : {"type": "long", "index":   "no"},      
+                "clusterId" : {"type": "long", "index":   "no"},      
+                "reportIndex" : {"type": "integer", "index":   "no"},     
+                "targetAlt" : {"type": "integer", "index":   "not_analyzed"},    
+                "radialVelocity" : {"type": "integer", "index":   "not_analyzed"},    
+                "wrapVelocity" : {"type": "integer", "index":   "no"},    
+                "signalToNoise" : {"type": "integer", "index":   "not_analyzed"},                   
+                "classificationProb" : {"type": "integer", "index":   "no"},    
+                "slantRangeError" : {"type": "integer", "index":   "no"},    
+                "crossRangeError" : {"type": "integer", "index":   "no"},    
+                "heightError" : {"type": "integer", "index":   "no"},    
+                "radialVelocityError" : {"type": "integer", "index":   "no"},        
+                "truthApplication" : {"type": "integer", "index":   "no"},        
+                "radarCrossSection" : {"type": "integer", "index":   "not_analyzed"},
+                "dotMask" : {"type": "integer", "index":   "not_analyzed"},
+                "limdis": {
+                	"type" : "nested",
+                	"properties": {
+                        "domestic" : {"type": "boolean", "index":   "not_analyzed"},
+                		"northcom" : {"type": "boolean", "index":   "not_analyzed"},
+                		"southcom" : {"type": "boolean", "index":   "not_analyzed"},
+                		"eucom" : {"type": "boolean", "index":   "not_analyzed"},
+                		"africom" : {"type": "boolean", "index":   "not_analyzed"},
+                		"centcom" : {"type": "boolean", "index":   "not_analyzed"},
+                		"pacom" : {"type": "boolean", "index":   "not_analyzed"}
+                	}
+                }
+            }
+        }
+    }
+}

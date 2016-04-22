@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--============================================================================-->
+<!--GOVERNMENT PURPOSE RIGHTS LEGEND-->
+
+<!--Contract Number: 2014225G006-->
+
+<!--Government purpose rights expiration date: Sept 15, 2019-->
+
+<!--The Government's rights to use, modify, reproduce, release, perform,-->
+<!--display, or disclose this data are restricted by the contract clause-->
+<!--titled "FAR 52.227-14, Rights in Data – General (May 2014)" contained in-->
+<!--the contract under which these data were developed. Specific information-->
+<!--on these restrictions may be obtained by contacting:-->
+<!--Jeff Freeman (jeffrey.j.freeman@lmco.com)-->
+
+<!--No restrictions apply after the expiration date shown above. Any-->
+<!--reproduction of this data or portions thereof marked with this legend must-->
+<!--also reproduce the markings.-->
+<!--============================================================================-->
+<!--(C) 2015 Lockheed Martin Corporation-->
+<!--============================================================================-->
+<Configuration>
+    <CustomLevels>
+        <CustomLevel name="PERFORMANCE" intLevel="650" />
+    </CustomLevels>
+
+    <Appenders>
+        <Console name="stdout">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <LMRollingFile name="RollingFileMTI"
+                     filePattern="{{ p422_log_dir }}/%d{yyyy-MM-dd}/{{ p422_log_name }}_{{ p422_log_node_name }}.log" >
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <!-- <DefaultRolloverStrategy max="14"/> -->
+        </LMRollingFile>
+		 <LMRollingFile name="CocomQuerySearchFileMTIPerf" filePattern="{{ p422_log_dir }}/%d{yyyy-MM-dd}/{{ p422_log_cocomquery_name }}_{{ p422_log_node_name }}_perf.log" >
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy  />
+            </Policies>
+        </LMRollingFile>
+		<LMRollingFile name="DwellQuerySearchFileMTIPerf" filePattern="{{ p422_log_dir }}/%d{yyyy-MM-dd}/{{ p422_log_dwellquery_name }}_{{ p422_log_node_name }}_perf.log" >
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy  />
+            </Policies>
+        </LMRollingFile>
+		<LMRollingFile name="JobQuerySearchFileMTIPerf" filePattern="{{ p422_log_dir }}/%d{yyyy-MM-dd}/{{ p422_log_jobquery_name }}_{{ p422_log_node_name }}_perf.log" >
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy  />
+            </Policies>
+        </LMRollingFile>
+		<LMRollingFile name="MissionQuerySearchFileMTIPerf" filePattern="{{ p422_log_dir }}/%d{yyyy-MM-dd}/{{ p422_log_missionquery_name }}_{{ p422_log_node_name }}_perf.log" >
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy  />
+            </Policies>
+        </LMRollingFile>
+		<LMRollingFile name="DotQuerySearchFileMTIPerf" filePattern="{{ p422_log_dir }}/%d{yyyy-MM-dd}/{{ p422_log_dotquerysearch_name  }}_{{ p422_log_node_name }}_perf.log" >
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy  />
+            </Policies>
+        </LMRollingFile>
+		<LMRollingFile name="MissionSearchFileMTIPerf" filePattern="{{ p422_log_dir }}/%d{yyyy-MM-dd}/{{ p422_log_missionsearch_name }}_{{ p422_log_node_name }}_perf.log" >
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy  />
+            </Policies>
+        </LMRollingFile>
+		<LMRollingFile name="SensorSearchFileMTIPerf" filePattern="{{ p422_log_dir }}/%d{yyyy-MM-dd}/{{ p422_log_sensorsearch_name }}_{{ p422_log_node_name }}_perf.log" >
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy  />
+            </Policies>
+        </LMRollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="{{ p422_log_level }}">
+            <AppenderRef ref="RollingFileMTI"/>
+        </Root>
+        <Logger name ="CocomQuerySearchPerf">
+            <AppenderRef ref="CocomQuerySearchFileMTIPerf" level="{{ p422_log_level }}"/>
+        </Logger>
+        <Logger name ="DwellQuerySearchPerf">
+            <AppenderRef ref="DwellQuerySearchFileMTIPerf" level="{{ p422_log_level }}"/>
+        </Logger>
+        <Logger name ="JobQuerySearchPerf">
+            <AppenderRef ref="JobQuerySearchFileMTIPerf" level="{{ p422_log_level }}"/>
+        </Logger>
+        <Logger name ="MissionQuerySearchPerf">
+            <AppenderRef ref="MissionQuerySearchFileMTIPerf" level="{{ p422_log_level }}"/>
+        </Logger>
+        <Logger name ="DotQuerySearchPerf">
+            <AppenderRef ref="DotQuerySearchFileMTIPerf" level="{{ p422_log_level }}"/>
+        </Logger>
+        <Logger name ="MissionSearchPerf">
+            <AppenderRef ref="MissionSearchFileMTIPerf" level="{{ p422_log_level }}"/>
+        </Logger>
+        <Logger name ="SensorSearchPerf">
+            <AppenderRef ref="SensorSearchFileMTIPerf" level="{{ p422_log_level }}"/>
+        </Logger>
+    </Loggers>
+</Configuration>

@@ -1,0 +1,19 @@
+{
+  "name": "HQ",
+  "comment": "HQ",
+  "createdBy": "MTI-SYSTEM",
+  "startTime": "1800-01-01T00:00:00.000",
+  "stopTime": "2400-01-01T00:00:00.000",
+  "boundingArea": 
+	{"type":"Polygon","coordinates":[[[-176.90082550051,1.0079956054695],[-176.30207061769,1.0079956054695],[-176.30207061769,0.596008300782052],[-176.90082550051,0.596008300782052],[-176.90082550051,1.0079956054695]]]}
+  ,
+  "limdis": {
+    "domestic": "true",
+    "northcom": "false",
+    "southcom": "false",
+    "eucom": "false",
+    "africom": "false",
+    "centcom": "false",
+    "pacom": "false"
+  }
+}

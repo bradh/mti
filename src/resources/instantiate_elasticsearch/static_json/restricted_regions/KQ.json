@@ -1,0 +1,17 @@
+{
+  "name": "KQ",
+  "comment": "KQ",
+  "createdBy": "MTI-SYSTEM",
+  "startTime": "1800-01-01T00:00:00.000",
+  "stopTime": "2400-01-01T00:00:00.000",
+  "boundingArea": {"type":"Polygon","coordinates":[[[-162.50049591065,6.60140991211017],[-162.19837188722,6.60140991211017],[-162.19837188722,6.20040893554769],[-162.50049591065,6.20040893554769],[-162.50049591065,6.60140991211017]]]},
+  "limdis": {
+    "domestic": "true",
+    "northcom": "false",
+    "southcom": "false",
+    "eucom": "false",
+    "africom": "false",
+    "centcom": "false",
+    "pacom": "false"
+  }
+}

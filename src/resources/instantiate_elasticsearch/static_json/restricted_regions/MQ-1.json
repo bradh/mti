@@ -1,0 +1,19 @@
+{
+  "name": "MQ-1",
+  "comment": "MQ-1",
+  "createdBy": "MTI-SYSTEM",
+  "startTime": "1800-01-01T00:00:00.000",
+  "stopTime": "2400-01-01T00:00:00.000",
+  "boundingArea": 
+	{"type":"Polygon","coordinates":[[[-178.50105285644,28.600158691407],[-178.198928833,28.600158691407],[-178.198928833,28.401031494141],[-178.50105285644,28.401031494141],[-178.50105285644,28.600158691407]]]}
+  ,
+  "limdis": {
+    "domestic": "true",
+    "northcom": "false",
+    "southcom": "false",
+    "eucom": "false",
+    "africom": "false",
+    "centcom": "false",
+    "pacom": "false"
+  }
+}

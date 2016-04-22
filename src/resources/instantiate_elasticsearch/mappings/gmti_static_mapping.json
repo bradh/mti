@@ -1,0 +1,47 @@
+{
+  "mappings": {
+    "gmti_cocom": {
+      "properties": {
+        "cocom": {
+          "type": "string"
+        },
+        "regions": {
+          "type": "nested",
+          "properties": {
+            "area": {
+              "type": "geo_shape",
+              "tree": "quadtree",
+              "precision": "1m"
+            },
+            "region": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "gmti_platform": {
+      "properties": {
+        "platformId": {
+          "type": "string"
+        },
+        "ceiling": {
+          "type": "integer"
+        }
+      }
+    },
+    "gmti_sensor": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "platformIds": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

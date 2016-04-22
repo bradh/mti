@@ -1,0 +1,19 @@
+{
+  "name": "DQ",
+  "comment": "DQ",
+  "createdBy": "MTI-SYSTEM",
+  "startTime": "1800-01-01T00:00:00.000",
+  "stopTime": "2400-01-01T00:00:00.000",
+  "boundingArea": 
+	{"type":"Polygon","coordinates":[[[-160.10066986086,-0.19912719726483],[-159.79854583743,-0.19912719726483],[-159.79854583743,-0.597381591796078],[-160.10066986086,-0.597381591796078],[-160.10066986086,-0.19912719726483]]]}
+  ,
+  "limdis": {
+    "domestic": "true",
+    "northcom": "false",
+    "southcom": "false",
+    "eucom": "false",
+    "africom": "false",
+    "centcom": "false",
+    "pacom": "false"
+  }
+}
